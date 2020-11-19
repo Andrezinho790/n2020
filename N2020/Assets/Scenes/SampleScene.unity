@@ -1247,11 +1247,11 @@ MonoBehaviour:
   finishPlanningPhaseAnim: {fileID: 495014237}
   gamePhase: 0
   waves:
-  - enemy1Amount: 4
-    enemy2Amount: 0
+  - enemy1Amount: 2
+    enemy2Amount: 2
     enemy3Amount: 0
     enemy1SpawnRate: 0.3
-    enemy2SpawnRate: 0
+    enemy2SpawnRate: 0.5
     enemy3SpawnRate: 0
     spawnBoss: 0
   - enemy1Amount: 10
