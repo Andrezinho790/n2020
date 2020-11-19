@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ally
+  - Enemy
+  - GameManager
+  - TowerSlot
+  - Card
+  - Scenario
+  - Aura
   layers:
   - Default
   - TransparentFX
@@ -13,12 +20,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ally
+  - GameManager
+  - Enemy
+  - Card
+  - Aura
+  - Rock
   - 
   - 
   - 
