@@ -53,7 +53,7 @@ public class TroopController : MonoBehaviour
             }
             if (fightTarget != null)
             {
-                if (Vector3.Distance(fightTarget.position, transform.position) >= attackRange && health > 0)
+                if (Vector3.Distance(fightTarget.position, transform.position) >= attackRange && health > 0 && !fightTarget.GetComponent<EnemyController>().isDead && !isDead)
                 {
                     agent.isStopped = false;
                     agent.SetDestination(fightTarget.position);
@@ -140,8 +140,13 @@ public class TroopController : MonoBehaviour
         isFighting = true;
         while (isFighting)
         {
-            Attack();
+            if (!isDead)
+            {
+                Attack();
+                
+            }
             yield return new WaitForSeconds(attackSpeedDelay);
+
         }
     }
 

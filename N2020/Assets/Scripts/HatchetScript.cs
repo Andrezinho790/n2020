@@ -9,6 +9,8 @@ public class HatchetScript : MonoBehaviour
     public float velocity;
     //TowerController tController;
     public float speed;
+
+    public int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +29,12 @@ public class HatchetScript : MonoBehaviour
         return transform.InverseTransformDirection((destination - transform.position).normalized);
     }
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<EnemyController>().TakeDamage(damage);
+        }
     }
 }

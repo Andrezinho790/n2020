@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
-  force: 1500
+  force: 2000
 --- !u!1 &7855245257265379857
 GameObject:
   m_ObjectHideFlags: 0

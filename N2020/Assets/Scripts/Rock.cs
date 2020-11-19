@@ -10,6 +10,7 @@ public class Rock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject, 2f);
         rb = GetComponent<Rigidbody>();
         rb.AddRelativeForce(Vector3.forward * force);
     }

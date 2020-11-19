@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 6
   cardName: Torre de Machadinha
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 1e51c66ba70b1734db2979217db459e2, type: 3}
   elixirCost: 2

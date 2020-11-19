@@ -29,7 +29,9 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] private Animator enemyAnim;
 
-    bool isDead;
+    [HideInInspector]public bool isDead;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,14 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(agent.velocity.magnitude >= 0.1f && !isFighting)
+        {
+            enemyAnim.SetBool("isRunning", true);
+        }
+        else
+        {
+            enemyAnim.SetBool("isRunning", false);
+        }
         if (!isDead)
         {
             if (!isChasing && health > 0)
@@ -86,6 +96,10 @@ public class EnemyController : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 2.0f);
             }
         }
+        else
+        {
+            agent.isStopped = true;
+        }
        
 
     }
@@ -115,8 +129,12 @@ public class EnemyController : MonoBehaviour
     {
         isFighting = true;
         while (isFighting)
-        {
-            Attack();
+        {            
+            if (!isDead)
+            {
+                Attack();
+                
+            }
             yield return new WaitForSeconds(attackSpeedDelay);
         }
     }
@@ -139,5 +157,10 @@ public class EnemyController : MonoBehaviour
             enemyAnim.SetTrigger("Die");
             isDead = true;
         }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

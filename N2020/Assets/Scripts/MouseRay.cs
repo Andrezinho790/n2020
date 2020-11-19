@@ -13,6 +13,8 @@ public class MouseRay : MonoBehaviour
 
     public GameManager gameManager;
 
+    private Transform lastTowerSlot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,7 @@ public class MouseRay : MonoBehaviour
                 CardSystem(hit);
             }
 
-            if (lastOutlineTransform != null)
+            /*if (lastOutlineTransform != null)
             {
                 if (hit.transform != lastOutlineTransform)
                 {
@@ -48,7 +50,7 @@ public class MouseRay : MonoBehaviour
                 {
                     hit.transform.GetChild(0).gameObject.SetActive(true);
                 }
-            }
+            }*/
 
             if (hit.transform.CompareTag("Card") && !isHoldingDown)
             {
@@ -87,16 +89,34 @@ public class MouseRay : MonoBehaviour
 
                     if (Physics.Raycast(cardRay, out cardHit, Mathf.Infinity, LayerMask.NameToLayer("Card")))
                     {
-                        if (cardHit.transform.CompareTag("Scenario"))
+                        if(card.cardData.type == CardType.TOWER_MELEE || card.cardData.type == CardType.TOWER_TRAP)
                         {
-                            card.ChangeAlpha();
-                            pointToSpawn.SetActive(true);
-                            pointToSpawn.transform.position = new Vector3(cardHit.point.x, cardHit.point.y, cardHit.point.z);
+                            if (cardHit.transform.CompareTag("TowerSlot"))
+                            {
+                                lastTowerSlot = cardHit.transform;
+                                card.ChangeAlpha();
+                                pointToSpawn.SetActive(true);
+                                pointToSpawn.transform.position = new Vector3(cardHit.point.x, cardHit.point.y, cardHit.point.z);
+                            }
+                            else
+                            {
+                                pointToSpawn.SetActive(false);
+                            }
                         }
                         else
                         {
-                            pointToSpawn.SetActive(false);
+                            if (cardHit.transform.CompareTag("Scenario"))
+                            {
+                                card.ChangeAlpha();
+                                pointToSpawn.SetActive(true);
+                                pointToSpawn.transform.position = new Vector3(cardHit.point.x, cardHit.point.y, cardHit.point.z);
+                            }
+                            else
+                            {
+                                pointToSpawn.SetActive(false);
+                            }
                         }
+
                     }
                     else
                     {
@@ -107,9 +127,23 @@ public class MouseRay : MonoBehaviour
                 {
                     if (pointToSpawn.activeInHierarchy && GameManager.Instance.elixir >= card.cardData.elixirCost)
                     {
-                        card.SpawnActor(pointToSpawn.transform.position);
+                        if(card.cardData.type == CardType.TOWER_MELEE)
+                        {
+                            lastTowerSlot.GetChild(0).gameObject.SetActive(true);
+                        }
+                        else if(card.cardData.type == CardType.TOWER_TRAP)
+                        {
+                            lastTowerSlot.GetChild(1).gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            card.SpawnActor(pointToSpawn.transform.position);
+                            
+                            
+                        }
                         Deck.Instance.AddToCemetery(card.handId);
                         pointToSpawn.SetActive(false);
+
                     }
                     else
                     {

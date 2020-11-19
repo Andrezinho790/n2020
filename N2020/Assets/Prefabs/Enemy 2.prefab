@@ -441,7 +441,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.32
-  m_Speed: 10
+  m_Speed: 15
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -502,6 +502,7 @@ MonoBehaviour:
   healthBar: {fileID: 4681714983963547897}
   timeToDisapear: 0
   enemyAnim: {fileID: 7045665307810546835}
+  isDead: 0
 --- !u!114 &7951376164018472145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,6 +636,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e860292622c397c489b8ec27e1cee6d2, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 6f1e22d2b7f974948a9b2f5c048d349b, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f1e22d2b7f974948a9b2f5c048d349b, type: 3}
 --- !u!4 &3974171103742041833 stripped
