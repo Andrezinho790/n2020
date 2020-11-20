@@ -15,6 +15,6 @@ public class AttackScript : MonoBehaviour
 
     public  void AttackTrigger()
     {
-        enemyCont.Attack();
+        //enemyCont.Attack();
     }
 }
