@@ -41,39 +41,39 @@ MonoBehaviour:
         stationaryBlending: 0.95
         motionBlending: 0.85
   ambientOcclusion:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
-      intensity: 2.02
-      radius: 9.9
-      sampleCount: 10
-      downsampling: 1
+      intensity: 1.72
+      radius: 9.87
+      sampleCount: 16
+      downsampling: 0
       forceForwardCompatibility: 0
       ambientOnly: 0
-      highPrecision: 0
+      highPrecision: 1
   screenSpaceReflection:
     m_Enabled: 0
     m_Settings:
       reflection:
         blendType: 0
-        reflectionQuality: 2
-        maxDistance: 100
-        iterationCount: 256
+        reflectionQuality: 0
+        maxDistance: 280.7
+        iterationCount: 1024
         stepSize: 3
-        widthModifier: 0.5
+        widthModifier: 10
         reflectionBlur: 1
-        reflectBackfaces: 0
+        reflectBackfaces: 1
       intensity:
-        reflectionMultiplier: 1
-        fadeDistance: 100
+        reflectionMultiplier: 2
+        fadeDistance: 1000
         fresnelFade: 1
-        fresnelFadePower: 1
+        fresnelFadePower: 10
       screenEdgeMask:
-        intensity: 0.03
+        intensity: 1
   depthOfField:
     m_Enabled: 0
     m_Settings:
-      focusDistance: 10
-      aperture: 18.37
+      focusDistance: 73.19
+      aperture: 32
       focalLength: 118.9
       useCameraFov: 0
       kernelSize: 1
@@ -81,36 +81,36 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       shutterAngle: 270
-      sampleCount: 10
+      sampleCount: 4
       frameBlending: 0
   eyeAdaptation:
     m_Enabled: 0
     m_Settings:
       lowPercent: 45
       highPercent: 95
-      minLuminance: 0.92
+      minLuminance: 8.77
       maxLuminance: 1
       keyValue: 0.25
       dynamicKeyValue: 1
       adaptationType: 0
       speedUp: 2
       speedDown: 1
-      logMin: -14
-      logMax: 2
+      logMin: -16
+      logMax: 8
   bloom:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 6.59
-        threshold: 1.1
-        softKnee: 0.562
-        radius: 4.53
+        intensity: 27.59
+        threshold: 1.13
+        softKnee: 0.533
+        radius: 3.88
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
         intensity: 3
   colorGrading:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       tonemapping:
         tonemapper: 2
@@ -135,9 +135,9 @@ MonoBehaviour:
       colorWheels:
         mode: 1
         log:
-          slope: {r: 1, g: 0.98285437, b: 0.7044982, a: 0}
-          power: {r: 1, g: 0.6764834, b: 0, a: 0}
-          offset: {r: 0.9821074, g: 0.98526865, b: 1, a: 0}
+          slope: {r: 0.56561065, g: 0.596437, b: 1, a: 0}
+          power: {r: 0.8788511, g: 0.8893851, b: 1, a: 0}
+          offset: {r: 0.96399456, g: 1, b: 0.7919109, a: 0}
         linear:
           lift: {r: 0, g: 0, b: 0, a: 0}
           gamma: {r: 0, g: 0, b: 0, a: 0}
@@ -309,16 +309,16 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0
+      intensity: 0.144
   grain:
     m_Enabled: 0
     m_Settings:
       colored: 1
-      intensity: 0.5
+      intensity: 0.456
       size: 1
       luminanceContribution: 0.8
   vignette:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
