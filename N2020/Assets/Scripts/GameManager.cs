@@ -32,10 +32,12 @@ public class GameManager : MonoBehaviour
     public Transform enemy1SpawnPoint;
     public Transform enemy2SpawnPoint;
     public Transform enemy3SpawnPoint;
+    public Transform bossSpawnPoint;
 
     public GameObject enemy1;
     public GameObject enemy2;
     public GameObject enemy3;
+    public GameObject boss;
     
     public List<Transform> pathTargets;
 
@@ -61,9 +63,24 @@ public class GameManager : MonoBehaviour
     public int maxElixir;
     private int minElixir;
 
+    public float timeToSpawnBoss;
 
+    public List<AudioClip> GruntsAudios;
+    public List<AudioClip> GruntsValkAudios;
+
+    public List<AudioClip> DieAudios;
+    public List<AudioClip> ValkDieAudios;
+
+    public List<AudioClip> Enemy1Grunts;
+    public List<AudioClip> Enemy2Grunts;
+    public List<AudioClip> Enemy3Grunts;
+
+    public List<AudioClip> StartFightAudios;
+
+    AudioSource audioSr;
     void Start()
     {
+        audioSr = GetComponent<AudioSource>();
         elixir = minElixir = 3;
         gameWave = -1;
         finishPlanningPhaseBtn.interactable = false;
@@ -94,6 +111,7 @@ public class GameManager : MonoBehaviour
 
     public void StartWavePhase()
     {
+
         foreach (Card card in Deck.Instance.hand)
         {
             if (!card.isUsed)
@@ -103,6 +121,8 @@ public class GameManager : MonoBehaviour
         }
 
         gameWave++;
+
+        audioSr.PlayOneShot(StartFightAudios[gameWave]);
 
         if (elixir < maxElixir)
         {
@@ -119,6 +139,10 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnEnemiesTypeOne());
         StartCoroutine(SpawnEnemiesTypeTwo());
         StartCoroutine(SpawnEnemiesTypeThree());
+        if (waves[gameWave].spawnBoss)
+        {
+            StartCoroutine(SpawnBoss());
+        }
     }
 
     IEnumerator SpawnEnemiesTypeOne()
@@ -150,7 +174,17 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         isSpawning = false;
     }
+    IEnumerator SpawnBoss()
+    {
+        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(timeToSpawnBoss);
 
+        Instantiate(boss, bossSpawnPoint);
+
+        yield return new WaitForSeconds(1f);
+        isSpawning = false;
+
+    }
     public void TakeDamage()
     {
         playerHealth--;

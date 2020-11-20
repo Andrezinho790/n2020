@@ -26,9 +26,14 @@ public class TroopController : MonoBehaviour
     [SerializeField]bool isValkyrie;
 
     bool isDead;
+
+    AudioSource audioSr;
+
+    GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
+        audioSr = GetComponent<AudioSource>();
         isDead = false;
         agent = GetComponent<NavMeshAgent>();
         sensor = GetComponent<RangeSensor>();
@@ -36,6 +41,7 @@ public class TroopController : MonoBehaviour
         healthBar.SetMaxHealth(health);
         agent.isStopped = true;
         agent.stoppingDistance = attackRange;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -84,7 +90,16 @@ public class TroopController : MonoBehaviour
         health -= damage;
         healthBar.SetHealth(health);
         if(health <= 0)
-        {            
+        {
+            if (isValkyrie)
+            {
+                audioSr.PlayOneShot(gameManager.ValkDieAudios[Random.Range(0, gameManager.ValkDieAudios.Count - 1)]);
+            }
+            else
+            {
+                audioSr.PlayOneShot(gameManager.DieAudios[Random.Range(0, gameManager.DieAudios.Count - 1)]);
+            }
+            
             gameObject.GetComponent<Collider>().enabled = false;
             Destroy(gameObject, timeToDisapear);
             troopAnim.SetTrigger("Die");
@@ -142,32 +157,40 @@ public class TroopController : MonoBehaviour
         {
             if (!isDead)
             {
-                Attack();
-                
+                troopAnim.SetTrigger("Attack");
+
             }
             yield return new WaitForSeconds(attackSpeedDelay);
 
         }
     }
 
-    void Attack()
+    public void Attack()
     {
-        troopAnim.SetTrigger("Attack");
-        if (isValkyrie)
+        if (!fightTarget.GetComponent<EnemyController>().isDead)
         {
-            foreach(GameObject nearEnemy in sensor.DetectedObjects)
+            
+            if (isValkyrie)
             {
-                if(Vector3.Distance(transform.position, nearEnemy.transform.position) <= attackRange)
+                audioSr.PlayOneShot(gameManager.GruntsValkAudios[Random.Range(0, gameManager.GruntsValkAudios.Count - 1)]);
+                foreach (GameObject nearEnemy in sensor.DetectedObjects)
                 {
-                    nearEnemy.GetComponent<EnemyController>().TakeDamage(strength);
+                    if (Vector3.Distance(transform.position, nearEnemy.transform.position) <= attackRange)
+                    {
+                        nearEnemy.GetComponent<EnemyController>().TakeDamage(strength);
+                    }
+
                 }
-                
             }
+            else if (fightTarget)
+            {
+                fightTarget.GetComponent<EnemyController>().TakeDamage(strength);
+                audioSr.PlayOneShot(gameManager.GruntsAudios[Random.Range(0, gameManager.GruntsAudios.Count - 1)]);
+            }
+
+            
         }
-        else if(fightTarget)
-        {
-            fightTarget.GetComponent<EnemyController>().TakeDamage(strength);
-        }       
+        
     }
 
     private void OnDrawGizmosSelected()
