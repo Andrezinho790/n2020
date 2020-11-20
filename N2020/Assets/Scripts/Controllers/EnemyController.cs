@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
 
                 agent.SetDestination(gameManager.pathTargets[targetIndex].position);
 
-                if (Vector3.Distance(transform.position, gameManager.pathTargets[targetIndex].position) <= attackRange)
+                if (Vector3.Distance(transform.position, gameManager.pathTargets[targetIndex].position) <= attackRange+2)
                 {
                     targetIndex++;
                 }
@@ -151,11 +151,11 @@ public class EnemyController : MonoBehaviour
         healthBar.SetHealth(health);
         if (health <= 0)
         {
-
+            isDead = true;
             gameObject.GetComponent<Collider>().enabled = false;
             Destroy(gameObject, timeToDisapear);
             enemyAnim.SetTrigger("Die");
-            isDead = true;
+            
         }
     }
     private void OnDrawGizmosSelected()
