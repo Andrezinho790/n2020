@@ -178,11 +178,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDisapear: 4
-  attackRange: 15
+  attackRange: 25
   attackSpeedDelay: 1
   health: 35
   maxHealth: 35
-  strength: 5
+  strength: 25
   maxStrength: 0
   healthBar: {fileID: 1207712237}
   troopAnim: {fileID: 1658583677904133030}
