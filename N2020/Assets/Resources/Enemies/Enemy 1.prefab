@@ -624,7 +624,7 @@ MonoBehaviour:
   attackRange: 4.5
   attackSpeedDelay: 1
   strength: 5
-  health: 40
+  health: 50
   healthBar: {fileID: 4681714983963547897}
   timeToDisapear: 4
   enemyAnim: {fileID: 4438380370840516263}
@@ -683,7 +683,7 @@ MonoBehaviour:
   TestLOSTargetsOnly: 0
   NumberOfRays: 1
   MinimumVisibility: 0.5
-  SensorRange: 11.61
+  SensorRange: 12
   DetectsOnLayers:
     serializedVersion: 2
     m_Bits: 256

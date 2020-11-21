@@ -495,10 +495,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071a73edb4aea09498e6434c2cf171d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 3
+  attackRange: 4
   attackSpeedDelay: 3.5
-  strength: 10
-  health: 100
+  strength: 25
+  health: 300
   healthBar: {fileID: 4681714983963547897}
   timeToDisapear: 0
   enemyAnim: {fileID: 378079613082378322}

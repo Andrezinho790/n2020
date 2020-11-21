@@ -179,10 +179,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToDisapear: 4
   attackRange: 3
-  attackSpeedDelay: 1.2
-  health: 35
-  maxHealth: 35
-  strength: 5
+  attackSpeedDelay: 1.5
+  health: 50
+  maxHealth: 50
+  strength: 12
   maxStrength: 0
   healthBar: {fileID: 1207712237}
   troopAnim: {fileID: 5772760503970527230}

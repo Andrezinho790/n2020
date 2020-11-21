@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hatchetGO: {fileID: 0}
   rockGO: {fileID: 97399451323724017, guid: fdac719f3ba75de4880c289cfc60ad81, type: 3}
-  spawnRate: 0.8
+  spawnRate: 4
   spawnPoint: {fileID: 4743634384465863421}
   target: {fileID: 0}
 --- !u!1 &4743634384465863422

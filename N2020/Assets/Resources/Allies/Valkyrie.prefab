@@ -181,8 +181,8 @@ MonoBehaviour:
   timeToDisapear: 4
   attackRange: 9.18
   attackSpeedDelay: 3.5
-  health: 200
-  maxHealth: 200
+  health: 300
+  maxHealth: 300
   strength: 17
   maxStrength: 0
   healthBar: {fileID: 1207712237}
@@ -620,6 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdac8ef0b6ad84d40b9384051874fa7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyCont: {fileID: 0}
 --- !u!1 &6876419345149850279
 GameObject:
   m_ObjectHideFlags: 0
