@@ -259,6 +259,10 @@ PrefabInstance:
       propertyPath: enemy3SpawnPoint
       value: 
       objectReference: {fileID: 626614278}
+    - target: {fileID: 8028059087382397855, guid: dd2320ee38423e94299ddaca6a2db3ac, type: 3}
+      propertyPath: pathTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 211461271}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd2320ee38423e94299ddaca6a2db3ac, type: 3}
 --- !u!1 &211461270
