@@ -499,14 +499,56 @@ MonoBehaviour:
   finishPlanningPhaseAnim: {fileID: 1240363269959746107}
   gamePhase: 0
   waves:
-  - enemy1Amount: 4
+  - enemy1Amount: 2
     enemy2Amount: 0
     enemy3Amount: 0
     enemy1SpawnRate: 0.3
     enemy2SpawnRate: 0
     enemy3SpawnRate: 0
     spawnBoss: 0
+  - enemy1Amount: 4
+    enemy2Amount: 0
+    enemy3Amount: 0
+    enemy1SpawnRate: 1
+    enemy2SpawnRate: 0.2
+    enemy3SpawnRate: 1.3
+    spawnBoss: 0
+  - enemy1Amount: 6
+    enemy2Amount: 1
+    enemy3Amount: 0
+    enemy1SpawnRate: 1
+    enemy2SpawnRate: 0.2
+    enemy3SpawnRate: 1.3
+    spawnBoss: 0
+  - enemy1Amount: 8
+    enemy2Amount: 1
+    enemy3Amount: 0
+    enemy1SpawnRate: 1
+    enemy2SpawnRate: 0.2
+    enemy3SpawnRate: 1.3
+    spawnBoss: 0
   - enemy1Amount: 10
+    enemy2Amount: 1
+    enemy3Amount: 0
+    enemy1SpawnRate: 1
+    enemy2SpawnRate: 0.2
+    enemy3SpawnRate: 1.3
+    spawnBoss: 0
+  - enemy1Amount: 12
+    enemy2Amount: 1
+    enemy3Amount: 0
+    enemy1SpawnRate: 1
+    enemy2SpawnRate: 0.2
+    enemy3SpawnRate: 1.3
+    spawnBoss: 0
+  - enemy1Amount: 10
+    enemy2Amount: 0
+    enemy3Amount: 0
+    enemy1SpawnRate: 1
+    enemy2SpawnRate: 0.2
+    enemy3SpawnRate: 1.3
+    spawnBoss: 0
+  - enemy1Amount: 12
     enemy2Amount: 0
     enemy3Amount: 0
     enemy1SpawnRate: 1
