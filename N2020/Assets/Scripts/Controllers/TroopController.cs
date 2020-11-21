@@ -93,11 +93,19 @@ public class TroopController : MonoBehaviour
         {
             if (isValkyrie)
             {
-                audioSr.PlayOneShot(gameManager.ValkDieAudios[Random.Range(0, gameManager.ValkDieAudios.Count - 1)]);
+                if (gameManager.GruntsValkAudios.Count > 0)
+                {
+                    audioSr.PlayOneShot(gameManager.ValkDieAudios[Random.Range(0, gameManager.ValkDieAudios.Count - 1)]);
+                }
+                    
             }
             else
             {
-                audioSr.PlayOneShot(gameManager.DieAudios[Random.Range(0, gameManager.DieAudios.Count - 1)]);
+                if (gameManager.GruntsAudios.Count > 0)
+                {
+                    audioSr.PlayOneShot(gameManager.DieAudios[Random.Range(0, gameManager.DieAudios.Count - 1)]);
+                }
+                    
             }
             
             gameObject.GetComponent<Collider>().enabled = false;
@@ -172,7 +180,11 @@ public class TroopController : MonoBehaviour
             
             if (isValkyrie)
             {
-                audioSr.PlayOneShot(gameManager.GruntsValkAudios[Random.Range(0, gameManager.GruntsValkAudios.Count - 1)]);
+                if(gameManager.GruntsValkAudios.Count > 0)
+                {
+                    audioSr.PlayOneShot(gameManager.GruntsValkAudios[Random.Range(0, gameManager.GruntsValkAudios.Count - 1)]);
+
+                }
                 foreach (GameObject nearEnemy in sensor.DetectedObjects)
                 {
                     if (Vector3.Distance(transform.position, nearEnemy.transform.position) <= attackRange)
@@ -185,7 +197,12 @@ public class TroopController : MonoBehaviour
             else if (fightTarget)
             {
                 fightTarget.GetComponent<EnemyController>().TakeDamage(strength);
-                audioSr.PlayOneShot(gameManager.GruntsAudios[Random.Range(0, gameManager.GruntsAudios.Count - 1)]);
+                if (gameManager.GruntsAudios.Count > 0) 
+                {
+                    audioSr.PlayOneShot(gameManager.GruntsAudios[Random.Range(0, gameManager.GruntsAudios.Count - 1)]);
+                }
+
+                
             }
 
             
