@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 409784}
   - component: {fileID: 3320202}
   - component: {fileID: 2381160}
+  - component: {fileID: 4149131352225397840}
+  - component: {fileID: 8865937558543980888}
   m_Layer: 0
   m_Name: big_fence.001
   m_TagString: Untagged
@@ -81,3 +83,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4149131352225397840
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156340}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7909777, y: 3.3215954, z: 0.19926837}
+  m_Center: {x: -0.10502124, y: 1.660797, z: -0.046427738}
+--- !u!208 &8865937558543980888
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156340}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.3950001, y: 1.6610001, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.105000004, y: 1.6610001, z: -0.046000004}
+  m_TimeToStationary: 0.5
