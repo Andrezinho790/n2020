@@ -165,6 +165,7 @@ public class TroopController : MonoBehaviour
         {
             if (!isDead)
             {
+                Attack();
                 troopAnim.SetTrigger("Attack");
 
             }

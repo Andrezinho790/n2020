@@ -623,7 +623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 4.5
   attackSpeedDelay: 1
-  strength: 10
+  strength: 5
   health: 40
   healthBar: {fileID: 4681714983963547897}
   timeToDisapear: 4
